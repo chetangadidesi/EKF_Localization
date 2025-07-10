@@ -1,5 +1,7 @@
 # Mobile Robot Localization using Extended Kalman Filter (EKF)
-This project demonstrates how to localize a mobile robot in 2D using the Extended Kalman Filter (EKF). The simulation combines motion modeling, sensor fusion (GPS + odometry), and noisy control input to estimate the robot's trajectory in real-time.
+This project implements an Extended Kalman Filter (EKF) for mobile robot localization in a 2D space with noisy motion and GPS sensor data. The robot follows a nonlinear kinematic model and uses EKF to estimate its pose by fusing control inputs and noisy observations.
+
+Key features include real-time simulation, visualization of uncertainty via covariance ellipses, and a clean, modular Python codebase. This project serves as a strong foundation for learning and extending EKF-based state estimation, sensor fusion, or even SLAM in probabilistic robotics.
 
 # Project Overview
 This Python-based project simulates a robot navigating in 2D space and estimates its position using:
@@ -14,19 +16,6 @@ This Python-based project simulates a robot navigating in 2D space and estimates
 
 The simulation shows how the EKF corrects noisy predictions using noisy measurements and produces a much more accurate estimate of the robot's path.
 
-# Project Structure
-<details> <summary>📁 <code>Project Structure</code></summary>
-mobile_robot_ekf_project/
-│
-├── main.py                   # Main simulation loop and visualization
-├── ekf.py                    # EKF prediction and update functions
-├── models.py                 # Motion model, observation model, and Jacobians
-├── utils/
-│   └── plot.py               # Utility for drawing covariance ellipses
-├── README.md                 # Project documentation (this file)
-├── requirements.txt          # Required Python packages
-</details>
-
 # How to Run
 1) Install dependencies
    ```bash
@@ -37,35 +26,15 @@ mobile_robot_ekf_project/
 You should see a live animated plot comparing the true, estimated, and dead reckoning paths.
 
 # Features
-✅ Extended Kalman Filter (EKF) implemented from scratch
-Includes both prediction and correction steps with motion and observation model linearization using Jacobians.
+- Full EKF Implementation: Includes nonlinear motion model, linearization via Jacobians, and full prediction-update loop with uncertainty propagation.
 
-✅ Nonlinear kinematic motion model
-Simulates a realistic bicycle-like robot model with position, orientation, and velocity.
+- Sensor & Control Noise Simulation: Simulates noisy GPS measurements and actuator uncertainties for realistic data fusion.
 
-✅ Noisy control input simulation
-Emulates real-world motor uncertainty by adding Gaussian noise to velocity and yaw rate commands.
+- Dead Reckoning vs EKF Comparison: Visualizes how EKF outperforms pure odometry using noisy inputs.
 
-✅ GPS-like noisy observation model
-Uses simulated noisy measurements to represent imperfect real-world sensors.
+- Uncertainty Visualization: Draws dynamic 2D covariance ellipses to show evolving estimation confidence.
 
-✅ Covariance propagation and Kalman gain computation
-Proper uncertainty handling using prediction and innovation covariance matrices (P, S).
-
-✅ Real-time animation with uncertainty ellipses
-Visualizes evolving state estimates along with uncertainty using 2D Gaussian ellipses.
-
-✅ Dead reckoning vs. EKF comparison
-Highlights the benefits of sensor fusion by comparing pure odometry with EKF estimates.
-
-✅ Modular code structure for reusability
-Separated into motion/observation models, EKF logic, and plotting utilities for clarity and extension.
-
-✅ State and measurement history tracking
-Maintains trajectory data for analysis, plotting, or post-processing.
-
-✅ Support for batch simulation
-Easily adaptable for offline data simulation or log replay scenarios.
+- Modular, Extensible Codebase: Clean separation of models, filter logic, and visualization—ideal for learning and experimentation.
    
 # Future Work
 
