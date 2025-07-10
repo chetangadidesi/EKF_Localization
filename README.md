@@ -3,6 +3,8 @@ This project implements an Extended Kalman Filter (EKF) for mobile robot localiz
 
 Key features include real-time simulation, visualization of uncertainty via covariance ellipses, and a clean, modular Python codebase. This project serves as a strong foundation for learning and extending EKF-based state estimation, sensor fusion, or even SLAM in probabilistic robotics.
 
+<img src = "ekf_py.png">
+
 # Project Overview
 This Python-based project simulates a robot navigating in 2D space and estimates its position using:
 
